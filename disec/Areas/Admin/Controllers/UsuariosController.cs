@@ -20,31 +20,31 @@ namespace disec.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ResetPassword(ResetPasswordViewModels dato)
-        {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext(new OracleConnection(ConfigurationManager.ConnectionStrings["ContextIdentity"].ConnectionString))));          
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult ResetPassword(ResetPasswordViewModels dato)
+        //{
+        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext(new OracleConnection(ConfigurationManager.ConnectionStrings["ContextIdentity"].ConnectionString))));          
 
-            if (ModelState.IsValid)
-            {
-                var result = userManager.RemovePassword(dato.idUsuario);
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = userManager.RemovePassword(dato.idUsuario);
 
-                if (result.Succeeded)
-                {
-                    var resul = userManager.AddPassword(dato.idUsuario, dato.nuevoPassword);
+        //        if (result.Succeeded)
+        //        {
+        //            var resul = userManager.AddPassword(dato.idUsuario, dato.nuevoPassword);
 
-                    if (resul.Succeeded)
-                    {
-                        //return RedirectToAction("Index", "Usuarios", new { area = "Administracion" });
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(dato.nuevoPassword, "Lo sentimos, no se restablecio la contraseña");
-                    }
-                }
-            }
-            return View(dato);
-        }
+        //            if (resul.Succeeded)
+        //            {
+        //                //return RedirectToAction("Index", "Usuarios", new { area = "Administracion" });
+        //            }
+        //            else
+        //            {
+        //                ModelState.AddModelError(dato.nuevoPassword, "Lo sentimos, no se restablecio la contraseña");
+        //            }
+        //        }
+        //    }
+        //    return View(dato);
+        //}
     }
 }

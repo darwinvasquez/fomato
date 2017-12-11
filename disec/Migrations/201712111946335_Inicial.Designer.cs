@@ -13,7 +13,7 @@ namespace disec.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712041835179_Inicial"; }
+            get { return "201712111946335_Inicial"; }
         }
         
         string IMigrationMetadata.Source

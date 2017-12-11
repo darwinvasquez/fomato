@@ -215,44 +215,16 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Models\AdminViewModel.cs" />
-    <Compile Include="Areas\Seget\Controllers\OFPLA_UNIDADController.cs" />
-    <Compile Include="Areas\Seget\Models\DOCUMENTO.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\OFPLA_PISCC.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\OFPLA_UNIDAD.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\Models\PISCC_TEMA_PRIORIZADA.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Seget\SegetAreaRegistration.cs" />
+    <Compile Include="Areas\Grude\GrudeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712041835179_Inicial.cs" />
-    <Compile Include="Migrations\201712041835179_Inicial.Designer.cs">
-      <DependentUpon>201712041835179_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201712111946335_Inicial.cs" />
+    <Compile Include="Migrations\201712111946335_Inicial.Designer.cs">
+      <DependentUpon>201712111946335_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -262,16 +234,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Seget\Models\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Areas\Seget\Models\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap-datepicker\dist\css\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker\dist\css\bootstrap-datepicker.standalone.css" />
@@ -2504,25 +2466,11 @@
     <Content Include="Scripts\fastclick\bower.json" />
     <Content Include="Scripts\fastclick\LICENSE" />
     <Content Include="Scripts\fastclick\README.md" />
-    <Content Include="Areas\Seget\Views\web.config" />
-    <EntityDeploy Include="Areas\Seget\Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Areas\Seget\Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Areas\Seget\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Seget\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Seget\Views\OFPLA_UNIDAD\Create.cshtml" />
-    <Content Include="Areas\Seget\Views\OFPLA_UNIDAD\Delete.cshtml" />
-    <Content Include="Areas\Seget\Views\OFPLA_UNIDAD\Details.cshtml" />
-    <Content Include="Areas\Seget\Views\OFPLA_UNIDAD\Edit.cshtml" />
-    <Content Include="Areas\Seget\Views\OFPLA_UNIDAD\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Usuarios\ResetPassword.cshtml" />
+    <Content Include="Areas\Grude\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\datatables.net\js\jquery.dataTables.js" />
     <Content Include="Scripts\datatables.net\js\jquery.dataTables.min.js" />
@@ -3846,6 +3794,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Grude\Controllers\" />
+    <Folder Include="Areas\Grude\Models\" />
+    <Folder Include="Areas\Grude\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -3869,8 +3820,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712041835179_Inicial.resx">
-      <DependentUpon>201712041835179_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712111946335_Inicial.resx">
+      <DependentUpon>201712111946335_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
