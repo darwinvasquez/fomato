@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DOCUMENTO">
+    <Key>
+      <PropertyRef Name="DOCUMENTO_ID" />
+    </Key>
+    <Property Name="DOCUMENTO_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OFPLA_PISCC_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="URL" Type="varchar2" MaxLength="255" />
+    <Property Name="IDENTIFICACION_CREA" Type="number" Precision="12" Scale="0" />
+    <Property Name="FECHA_CREACION" Type="date" />
+    <Property Name="MAQUINA_CREACION" Type="varchar2" MaxLength="255" />
+    <Property Name="VIGENTE" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="OFPLA_PISCC">
+    <Key>
+      <PropertyRef Name="OFPLA_PISCC_ID" />
+    </Key>
+    <Property Name="OFPLA_PISCC_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UNIDAD_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ID_ESTADO" Type="number" Precision="38" Scale="0" />
+    <Property Name="ANO_APROBACION" Type="date" />
+    <Property Name="NRO_ACTA_APROBACION" Type="varchar2" MaxLength="255" />
+    <Property Name="COSTO_TOTAL" Type="number" Precision="20" Scale="0" />
+    <Property Name="ID_DIAGNOSTICO" Type="number" Precision="38" Scale="0" />
+    <Property Name="ID_ESTRATEGIA" Type="number" Precision="38" Scale="0" />
+    <Property Name="ID_FINANCIERA" Type="number" Precision="38" Scale="0" />
+    <Property Name="VIGENTE" Type="number" Precision="38" Scale="0" />
+    <Property Name="IDENTIFICACION_CREA" Type="number" Precision="12" Scale="0" />
+    <Property Name="FECHA_CREACION" Type="date" />
+    <Property Name="MAQUINA_CREACION" Type="varchar2" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="OFPLA_UNIDAD">
+    <Key>
+      <PropertyRef Name="UNIDAD_ID" />
+    </Key>
+    <Property Name="UNIDAD_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UNDE_LUGAR_GEOGRAFICO" Type="number" Precision="6" Scale="0" />
+    <Property Name="IDENTIFICACION_CREA" Type="number" Precision="12" Scale="0" />
+    <Property Name="FECHA_CREACION" Type="date" />
+    <Property Name="MAQUINA_CREACION" Type="varchar2" MaxLength="255" />
+    <Property Name="VIGENTE" Type="number" Precision="38" Scale="0" />
+    <Property Name="UNDE_CONSECUTIVO" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="PISCC_TEMA_PRIORIZADA">
+    <Key>
+      <PropertyRef Name="TEMATICA_ID" />
+    </Key>
+    <Property Name="TEMATICA_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OFPLA_PISCC_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="ID_TEMA_PRIORIZADO" Type="number" Precision="38" Scale="0" />
+    <Property Name="VIGENTE" Type="number" Precision="38" Scale="0" />
+    <Property Name="OTRO" Type="varchar2" MaxLength="255" />
+    <Property Name="IDENTIFICACION_CREA" Type="number" Precision="12" Scale="0" />
+    <Property Name="FECHA_CREACION" Type="date" />
+    <Property Name="MAQUINA_CREACION" Type="varchar2" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_DO_OFPLA_PISCC_ID">
+    <End Role="OFPLA_PISCC" Type="Self.OFPLA_PISCC" Multiplicity="0..1" />
+    <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OFPLA_PISCC">
+        <PropertyRef Name="OFPLA_PISCC_ID" />
+      </Principal>
+      <Dependent Role="DOCUMENTO">
+        <PropertyRef Name="OFPLA_PISCC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PI_UNIDAD_ID">
+    <End Role="OFPLA_UNIDAD" Type="Self.OFPLA_UNIDAD" Multiplicity="0..1" />
+    <End Role="OFPLA_PISCC" Type="Self.OFPLA_PISCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OFPLA_UNIDAD">
+        <PropertyRef Name="UNIDAD_ID" />
+      </Principal>
+      <Dependent Role="OFPLA_PISCC">
+        <PropertyRef Name="UNIDAD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TE_OFPLA_PISCC_ID">
+    <End Role="OFPLA_PISCC" Type="Self.OFPLA_PISCC" Multiplicity="0..1" />
+    <End Role="PISCC_TEMA_PRIORIZADA" Type="Self.PISCC_TEMA_PRIORIZADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OFPLA_PISCC">
+        <PropertyRef Name="OFPLA_PISCC_ID" />
+      </Principal>
+      <Dependent Role="PISCC_TEMA_PRIORIZADA">
+        <PropertyRef Name="OFPLA_PISCC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="USR_SIMOP" store:Type="Tables" />
+    <EntitySet Name="OFPLA_PISCC" EntityType="Self.OFPLA_PISCC" Schema="USR_SIMOP" store:Type="Tables" />
+    <EntitySet Name="OFPLA_UNIDAD" EntityType="Self.OFPLA_UNIDAD" Schema="USR_SIMOP" store:Type="Tables" />
+    <EntitySet Name="PISCC_TEMA_PRIORIZADA" EntityType="Self.PISCC_TEMA_PRIORIZADA" Schema="USR_SIMOP" store:Type="Tables" />
+    <AssociationSet Name="FK_DO_OFPLA_PISCC_ID" Association="Self.FK_DO_OFPLA_PISCC_ID">
+      <End Role="OFPLA_PISCC" EntitySet="OFPLA_PISCC" />
+      <End Role="DOCUMENTO" EntitySet="DOCUMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PI_UNIDAD_ID" Association="Self.FK_PI_UNIDAD_ID">
+      <End Role="OFPLA_UNIDAD" EntitySet="OFPLA_UNIDAD" />
+      <End Role="OFPLA_PISCC" EntitySet="OFPLA_PISCC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TE_OFPLA_PISCC_ID" Association="Self.FK_TE_OFPLA_PISCC_ID">
+      <End Role="OFPLA_PISCC" EntitySet="OFPLA_PISCC" />
+      <End Role="PISCC_TEMA_PRIORIZADA" EntitySet="PISCC_TEMA_PRIORIZADA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

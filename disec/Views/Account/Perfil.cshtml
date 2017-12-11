@@ -1,0 +1,123 @@
+﻿@using disec.Models;
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
+@{
+    ViewBag.Title = "Perfil - " + User.Identity.GetNombres() + User.Identity.GetApellidos();
+    //var UserManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(User.Identity.GetUserId());
+    var UserManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var roles = UserManager.GetRoles(User.Identity.GetUserId());
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Perfil Usuario
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Preferencias</a></li>
+        <li class="active">Perfil Usuario</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Profile Image -->
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" alt="User profile picture">
+                    <h3 class="profile-username text-center">@User.Identity.GetGrado() @User.Identity.GetNombres()  @User.Identity.GetApellidos()</h3>
+                    <p class="text-muted text-center">@User.Identity.GetCargo()</p>
+                    @*<ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Dependencia</b> <a class="pull-right">@User.Identity.GetDependencia()</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Celular</b> <a class="pull-right">@User.Identity.GetCelular()</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Sigla</b> <a class="pull-right">@User.Identity.GetSiglaDependencia()</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Estado</b> <a class="pull-right">@User.Identity.GetSituacionLaboral()</a>
+                        </li>
+                    </ul>*@  
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <strong><i class="fa fa-book margin-r-5"></i> Dependencia</strong>
+                        <p class="text-muted">
+                            @User.Identity.GetDependencia()
+                        </p>
+                        <hr>
+                        <strong><i class="fa fa-map-marker margin-r-5"></i> Localización</strong>
+                        <p class="text-muted">@User.Identity.GetSiglaDependencia()</p>
+                        <hr>
+                        <strong><i class="glyphicon glyphicon-phone"></i> Celular</strong>
+                        <p class="text-muted">@User.Identity.GetCelular()</p>
+                        <hr>
+                        <strong><i class="fa fa-map-marker margin-r-5"></i> Situación Laboral</strong>
+                        <p class="text-muted">@User.Identity.GetSituacionLaboral()</p>
+                        <hr>                      
+                        <hr>
+                        <strong><i class="glyphicon glyphicon-hand-right"></i> Nota</strong>
+                        <p>La información es obtenida mediante el SIATH.</p>
+                    </div>
+                    <!-- /.box-body -->
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->          
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">                    
+                    <li class="active"><a href="#timeline" data-toggle="tab">Roles</a></li>                  
+                </ul>
+                <div class="tab-content">                                   
+                    <!-- /.tab-pane -->
+                    <div class="active tab-pane" id="timeline">
+                        <!-- The timeline -->
+                        <ul class="timeline timeline-inverse">                          
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-user bg-aqua"></i>
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i></span>
+                                    <h3 class="timeline-header"><a href="#">Roles asignados</a></h3>
+                                    <div class="timeline-body">
+                                        @for (int i = 0; i <= roles.Count() - 1; i++)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    @roles[i]
+                                                </li>
+                                            </ul>
+                                        } 
+                                    </div>                                   
+                                </div>                               
+                            </li> 
+                            <!-- END timeline item -->
+                            <li>
+                                <i class="fa fa-clock-o bg-gray"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.tab-pane -->    
+                </div>
+               
+                <!-- /.tab-content -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+  </div>
+<!-- /.content-wrapper -->

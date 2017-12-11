@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ContextSeget">
+    <EntitySetMapping Name="DOCUMENTO">
+      <EntityTypeMapping TypeName="Model.DOCUMENTO">
+        <MappingFragment StoreEntitySet="DOCUMENTO">
+          <ScalarProperty Name="DOCUMENTO_ID" ColumnName="DOCUMENTO_ID" />
+          <ScalarProperty Name="OFPLA_PISCC_ID" ColumnName="OFPLA_PISCC_ID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="IDENTIFICACION_CREA" ColumnName="IDENTIFICACION_CREA" />
+          <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+          <ScalarProperty Name="MAQUINA_CREACION" ColumnName="MAQUINA_CREACION" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OFPLA_PISCC">
+      <EntityTypeMapping TypeName="Model.OFPLA_PISCC">
+        <MappingFragment StoreEntitySet="OFPLA_PISCC">
+          <ScalarProperty Name="OFPLA_PISCC_ID" ColumnName="OFPLA_PISCC_ID" />
+          <ScalarProperty Name="UNIDAD_ID" ColumnName="UNIDAD_ID" />
+          <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+          <ScalarProperty Name="ANO_APROBACION" ColumnName="ANO_APROBACION" />
+          <ScalarProperty Name="NRO_ACTA_APROBACION" ColumnName="NRO_ACTA_APROBACION" />
+          <ScalarProperty Name="COSTO_TOTAL" ColumnName="COSTO_TOTAL" />
+          <ScalarProperty Name="ID_DIAGNOSTICO" ColumnName="ID_DIAGNOSTICO" />
+          <ScalarProperty Name="ID_ESTRATEGIA" ColumnName="ID_ESTRATEGIA" />
+          <ScalarProperty Name="ID_FINANCIERA" ColumnName="ID_FINANCIERA" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="IDENTIFICACION_CREA" ColumnName="IDENTIFICACION_CREA" />
+          <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+          <ScalarProperty Name="MAQUINA_CREACION" ColumnName="MAQUINA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OFPLA_UNIDAD">
+      <EntityTypeMapping TypeName="Model.OFPLA_UNIDAD">
+        <MappingFragment StoreEntitySet="OFPLA_UNIDAD">
+          <ScalarProperty Name="UNIDAD_ID" ColumnName="UNIDAD_ID" />
+          <ScalarProperty Name="UNDE_LUGAR_GEOGRAFICO" ColumnName="UNDE_LUGAR_GEOGRAFICO" />
+          <ScalarProperty Name="IDENTIFICACION_CREA" ColumnName="IDENTIFICACION_CREA" />
+          <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+          <ScalarProperty Name="MAQUINA_CREACION" ColumnName="MAQUINA_CREACION" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="UNDE_CONSECUTIVO" ColumnName="UNDE_CONSECUTIVO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PISCC_TEMA_PRIORIZADA">
+      <EntityTypeMapping TypeName="Model.PISCC_TEMA_PRIORIZADA">
+        <MappingFragment StoreEntitySet="PISCC_TEMA_PRIORIZADA">
+          <ScalarProperty Name="TEMATICA_ID" ColumnName="TEMATICA_ID" />
+          <ScalarProperty Name="OFPLA_PISCC_ID" ColumnName="OFPLA_PISCC_ID" />
+          <ScalarProperty Name="ID_TEMA_PRIORIZADO" ColumnName="ID_TEMA_PRIORIZADO" />
+          <ScalarProperty Name="VIGENTE" ColumnName="VIGENTE" />
+          <ScalarProperty Name="OTRO" ColumnName="OTRO" />
+          <ScalarProperty Name="IDENTIFICACION_CREA" ColumnName="IDENTIFICACION_CREA" />
+          <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+          <ScalarProperty Name="MAQUINA_CREACION" ColumnName="MAQUINA_CREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

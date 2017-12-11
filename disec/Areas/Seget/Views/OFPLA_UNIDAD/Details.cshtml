@@ -1,0 +1,66 @@
+﻿@model disec.Areas.Seget.Models.OFPLA_UNIDAD
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OFPLA_UNIDAD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UNDE_LUGAR_GEOGRAFICO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNDE_LUGAR_GEOGRAFICO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDENTIFICACION_CREA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDENTIFICACION_CREA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_CREACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_CREACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAQUINA_CREACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAQUINA_CREACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VIGENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIGENTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UNDE_CONSECUTIVO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNDE_CONSECUTIVO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UNIDAD_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

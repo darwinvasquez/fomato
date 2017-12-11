@@ -1,0 +1,58 @@
+﻿@using disec.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>Dirección de Seguridad Ciudadana</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Use una cuenta para iniciar sesión.</p>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", aria_describedby = "basic-addon2", @placeholder = "Email" })
+                        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-envelope"></span></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", aria_describedby = "basic-addon1", @placeholder = "Contraseña" })
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <input type="submit" value="Ingresar" class="btn btn-primary btn-block btn-flat" />
+                    </div>
+                    <!-- /.col -->
+                </div>
+        }
+        <br />
+        <p>@Html.ActionLink("¿Solicitar Cuenta?", "Register")</p>
+        <p>@Html.ActionLink("Restablecer Contraseña", "Register")</p>
+    </div>
+    <!-- /.login-box-body -->
+</div>
